@@ -1,0 +1,17 @@
+# Append this block to ~/.ssh/config (do not replace your existing file).
+# After adding it you can:
+#   ssh sines                          → log into the master node
+#   ssh -J sines zain.ikhlaq@compute2  → jump through master to a compute node
+#                                        (only works while you have a SLURM job there)
+
+Host sines
+    HostName 10.19.10.160
+    User zain.ikhlaq
+    Port 22
+    ServerAliveInterval 60
+    ServerAliveCountMax 3
+
+# Convenience pattern for compute nodes via master as jump host.
+Host sines-compute-*
+    User zain.ikhlaq
+    ProxyJump sines
