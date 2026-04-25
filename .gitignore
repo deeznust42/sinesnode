@@ -4,4 +4,3 @@
 models/
 local/
 .env
-probe-output/
